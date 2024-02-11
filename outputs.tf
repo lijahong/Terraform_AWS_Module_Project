@@ -1,0 +1,3 @@
+output "ALB_DOMAIN_ADDRESS" {
+  value = module.HONG-ALB.LB_DOMAIN_ADDRESS
+}
