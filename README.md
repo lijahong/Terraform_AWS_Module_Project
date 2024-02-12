@@ -12,8 +12,7 @@
 - variables.tf : Root Module에서 사용할 변수를 정의
 - terraform.tfvars : 정의한 변수에 주입할 값
 - outputs.tf : 프로비저닝 완료 후 출력하는 값 정의 ( ALB의 도메인 주소가 출력됩니다 )
-- start.sh
-> WEB 인스턴스를 설정해주는 Shell Script 입니다. 인스턴스 부팅 시, 아래 과정을 자동으로 실행합니다.
+- start.sh : WEB 인스턴스를 설정해주는 Shell Script 입니다. 인스턴스 부팅 시, 아래 과정을 자동으로 실행합니다.
 > 1. 소스 컴파일 설치 방식으로 Apache Httpd를 설치
 > 2. systemd에 Apache Service 등록
 > 3. 웹 페이지 html 파일 수정 및 반영
