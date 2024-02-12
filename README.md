@@ -8,6 +8,8 @@
 
 #### 코드 및 변수에 대한 상세 설명은 main.tf, variables.tf, start.sh에서 확인할 수 있습니다.
 
+## 2.1 Root Module 구조
+
 - provider.tf : 프로비저너를 지정하는 파일
 - main.tf : Child Module을 호출하여 설정을 통해 전체 인프라를 정의
 - variables.tf : Root Module에서 사용할 변수를 정의
@@ -19,15 +21,15 @@
 > 3. 웹 페이지 html 파일 수정 및 반영
 > 4. Apache Httpd 실행
 
-## 2.1. terraform.tfvars 변수 설정 값 설명
+## 2.2. terraform.tfvars 변수 설정 값 설명
 
-### 2.1.1. Vpc 설정
+### 2.2.1. Vpc 설정
 | Variable | Type | Description |
 | --- | --- | --- |
 | vpc_name | string | vpc의 태그 |
 | vpc_cidr | string | vpc의 ipv4 cidr 블록 |
 
-### 2.1.2. Subnet 설정
+### 2.2.2. Subnet 설정
 | Variable | Type | Description |
 | --- | --- | --- |
 | subnet_nat_name | string | nat subnet 태그 |
@@ -41,13 +43,13 @@
 | subnet_az_1 | string | subnet이 위치할 가용 영역 1 |
 | subnet_az_2 | string | subnet이 위치할 가용 영역 2 |
 
-### 2.1.3. Route Table 설정
+### 2.2.3. Route Table 설정
 | Variable | Type | Description |
 | --- | --- | --- |
 | route_table_private_name | string | Private Subnet에 대한 Route Table 태그 |
 | route_table_public_name | string | Public Subnet에 대한 Route Table 태그 |
 
-### 2.1.4. EC2 Web1 인스턴스 설정
+### 2.2.4. EC2 Web1 인스턴스 설정
 | Variable | Type | Description |
 | --- | --- | --- |
 | instance1_name | string | web 인스턴스 1의 태그 |
@@ -57,7 +59,7 @@
 | instance1_volume_size | number | web 인스턴스 1의 Root 볼륨 크기 |
 | instance1_volume_type | string | web 인스턴스 1의 Root 볼륨 타입 |
 
-### 2.1.5. EC2 Web2 인스턴스 설정
+### 2.2.5. EC2 Web2 인스턴스 설정
 | Variable | Type | Description |
 | --- | --- | --- |
 | instance2_name | string | web 인스턴스 2의 태그 |
@@ -67,25 +69,25 @@
 | instance2_volume_size | number | web 인스턴스 2의 Root 볼륨 크기 |
 | instance2_volume_type | string | web 인스턴스 2의 Root 볼륨 타입 |
 
-### 2.1.6. Key Pair 설정
+### 2.2.6. Key Pair 설정
 | Variable | Type | Description |
 | --- | --- | --- |
 | keypair_name | string | Key Pair 이름 |
 
-### 2.1.7. ALB & WEB 보안 그룹 설정 값
+### 2.2.7. ALB & WEB 보안 그룹 설정 값
 | Variable | Type | Description |
 | --- | --- | --- |
 | alb_security_group_name | string | ALB 보안 그룹 이름 |
 | web_security_group_name | string | WEB 인스턴스 보안 그룹 이름 |
 
-### 2.1.8. ELB 설정 값
+### 2.2.8. ELB 설정 값
 | Variable | Type | Description |
 | --- | --- | --- |
 | elb_name | string | ELB 이름 |
 | elb_isinternal | bool | ELB 외부 통신 여부 |
 | elb_type | string | ELB 타입 |
 
-### 2.1.9. Target Group 설정 값
+### 2.2.9. Target Group 설정 값
 | Variable | Type | Description |
 | --- | --- | --- |
 | target_group_name | string | Target Group 태그 |
@@ -97,14 +99,14 @@
 | target_group_health_check_path | string | 헬스 체크에 사용할 경로 |
 | target_group_health_check_port | number | 헬스 체크에 사용할 포트 |
 
-### 2.1.10. ELB Listener 설정 값
+### 2.2.10. ELB Listener 설정 값
 | Variable | Type | Description |
 | --- | --- | --- |
 | elb_listener_port | number | 요청을 받을 리스너의 포트 |
 | elb_listener_protocol | string | 요청을 받을 프로토콜 |
 | elb_listener_type | string | 리스너 타입 |
 
-### 2.1.11. ELB Target Group과 EC2 인스턴스 연결 설정 값
+### 2.2.11. ELB Target Group과 EC2 인스턴스 연결 설정 값
 | Variable | Type | Description |
 | --- | --- | --- |
 | targetgroup_attachment_port | number | 요청을 받을 EC2 인스턴스의 포트 |
@@ -113,29 +115,31 @@
 
 #### 코드 및 변수에 대한 상세 설명은 각 Module의 main.tf, variables.tf에서 확인할 수 있습니다.
 
-### 3.1. ec2
+## 3.1. Child Module 구조
+
+### 3.1.1. ec2
 - EC2 인스턴스를 생성하는 모듈
-### 3.2. elb
+### 3.1.2. elb
 - ELB를 생성하는 모듈
-### 3.3. elb_listenser
+### 3.1.3. elb_listenser
 - ELB Listener를 생성하는 모듈
-### 3.4. elb_target_group
+### 3.1.4. elb_target_group
 - Target Group을 생성하는 모듈
-### 3.5. elb_target_group_attachment
+### 3.1.5. elb_target_group_attachment
 - Target Group에 EC2 인스턴스를 연결하는 모듈
-### 3.6. keypair
+### 3.1.6. keypair
 - Key Pair를 생성하는 모듈
-### 3.7. routetable
+### 3.1.7. routetable
 - Route Table을 생성하는 모듈
-### 3.8. routetable_association
+### 3.1.8. routetable_association
 - 서브넷에 Route Table을 연결하는 모듈
-### 3.9. securitygroup
+### 3.1.9. securitygroup
 - 보안 그룹을 생성하는 모듈
-### 3.10. securitygroup_rule_cidr
+### 3.1.10. securitygroup_rule_cidr
 - CIDR 블록을 대상으로 하는 보안 그룹 규칙을 생성하는 모듈
-### 3.11. securitygroup_rule_sg
+### 3.1.11. securitygroup_rule_sg
 - 다른 보안 그룹을 대상으로 하는 보안 그룹 규칙을 생성하는 모듈
-### 3.12. subnet
+### 3.1.12. subnet
 - Subnet을 생성하는 모듈
-### 3.13. vpc
+### 3.1.13. vpc
 - Vpc를 생성하는 모듈
