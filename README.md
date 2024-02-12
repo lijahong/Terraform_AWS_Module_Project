@@ -4,8 +4,6 @@
 ![AS2](https://github.com/lijahong/Terraform_AWS_Module_Project/assets/69387517/a22a5a9c-0637-4178-bc24-d72860f7a342)
 #### Terraform 코드로 구축될 AWS 인프라는 위와 같으며, Web 서버에 Apache Httpd 2.4.58버전이 자동으로 설치되어 동작한다.
 
----
-
 # 2. Root Module
 
 #### 코드 및 변수에 대한 상세 설명은 main.tf, variables.tf, start.sh에서 확인할 수 있습니다.
@@ -110,8 +108,6 @@
 | Variable | Type | Description |
 | --- | --- | --- |
 | targetgroup_attachment_port | number | 요청을 받을 EC2 인스턴스의 포트 |
-
----
 
 # 3. Child Module
 
