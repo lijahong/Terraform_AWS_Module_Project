@@ -17,7 +17,7 @@ variable "vpc_id"{
 
 variable "health_check_interval"{
   type = number
-  description = "헬스 체크 주기"
+  description = "헬스 체크 주기 ( sec )"
 }
 variable "health_check_path"{
   type = string
