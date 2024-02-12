@@ -29,9 +29,9 @@ variable "health_check_port"{
 }
 variable "health_check_healthy_threshold"{
   type = number
-  description = "가동 중단 시, 재동작을 판단하는 헬스 체크 시도 횟수"
+  description = "서비스 상태를 성공으로 판단하는 연속 헬스 체크 횟수"
 }
 variable "health_check_unhealthy_threshold"{
   type = number
-  description = "가동 중단을 판단하는 헬스 체크 시도 횟수"
+  description = "서비스 상태를 실패로 판단하는 연속 헬스 체크 횟수"
 }
