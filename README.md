@@ -8,7 +8,7 @@
 
 ## Root Module
 - provider.tf : 프로비저너를 지정하는 파일
-- main.tf : Child Module을 호출하여 전체 인프라를 정의
+- main.tf : Child Module을 호출하여 설정을 통해 전체 인프라를 정의
 - variables.tf : Root Module에서 사용할 변수를 정의
 - terraform.tfvars : 정의한 변수에 주입할 값
 - outputs.tf : 프로비저닝 완료 후 출력하는 값 정의 ( ALB의 도메인 주소가 출력됩니다 )
@@ -17,6 +17,9 @@
 > 2. systemd에 Apache Service 등록
 > 3. 웹 페이지 html 파일 수정 및 반영
 > 4. Apache Httpd 실행
+
+### terraform.tfvars 변수 설명
+
 
 ---
 
