@@ -121,31 +121,37 @@
 
 #### 코드 및 변수에 대한 상세 설명은 각 Module의 main.tf, variables.tf에서 확인할 수 있습니다.
 
-## 3.1. Child Module 구조
+## 3.1. Chile Module 구조
+![image](https://github.com/lijahong/Terraform_AWS_Module_Project/assets/69387517/b8ab9bab-6375-4b02-96a2-a0826ec10351)
+- main.tf : 리소스를 정의한 파일
+- variables.tf : 리소스 정의에 사용할 변수를 정의한 파일
+- outputs.tf : 리소스 생성 후 출력할 값을 정의한 파일
 
-### 3.1.1. ec2
+## 3.2. Child Module 설명
+
+### 3.2.1. ec2
 - EC2 인스턴스를 생성하는 모듈
-### 3.1.2. elb
+### 3.2.2. elb
 - ELB를 생성하는 모듈
-### 3.1.3. elb_listenser
+### 3.2.3. elb_listenser
 - ELB Listener를 생성하는 모듈
-### 3.1.4. elb_target_group
+### 3.2.4. elb_target_group
 - Target Group을 생성하는 모듈
-### 3.1.5. elb_target_group_attachment
+### 3.2.5. elb_target_group_attachment
 - Target Group에 EC2 인스턴스를 연결하는 모듈
-### 3.1.6. keypair
+### 3.2.6. keypair
 - Key Pair를 생성하는 모듈
-### 3.1.7. routetable
+### 3.2.7. routetable
 - Route Table을 생성하는 모듈
-### 3.1.8. routetable_association
+### 3.2.8. routetable_association
 - 서브넷에 Route Table을 연결하는 모듈
-### 3.1.9. securitygroup
+### 3.2.9. securitygroup
 - 보안 그룹을 생성하는 모듈
-### 3.1.10. securitygroup_rule_cidr
+### 3.2.10. securitygroup_rule_cidr
 - CIDR 블록을 대상으로 하는 보안 그룹 규칙을 생성하는 모듈
-### 3.1.11. securitygroup_rule_sg
+### 3.2.11. securitygroup_rule_sg
 - 다른 보안 그룹을 대상으로 하는 보안 그룹 규칙을 생성하는 모듈
-### 3.1.12. subnet
+### 3.2.12. subnet
 - Subnet을 생성하는 모듈
-### 3.1.13. vpc
+### 3.2.13. vpc
 - Vpc를 생성하는 모듈
