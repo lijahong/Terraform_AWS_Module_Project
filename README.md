@@ -113,6 +113,8 @@
 | --- | --- | --- |
 | targetgroup_attachment_port | number | 요청을 받을 EC2 인스턴스의 포트 |
 
+---
+
 # 3. Child Module
 
 #### 코드 및 변수에 대한 상세 설명은 각 Module의 main.tf, variables.tf에서 확인할 수 있습니다.
